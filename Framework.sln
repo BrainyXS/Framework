@@ -1,0 +1,24 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.UI", "Framework.UI\Framework.UI.csproj", "{2820A03A-5A2A-4EAA-94D9-1E6E64DF7D1C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.UI.Test", "Framework.UI.Test\Framework.UI.Test.csproj", "{73F3B55F-E157-418B-9F79-92205C2FB98C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2820A03A-5A2A-4EAA-94D9-1E6E64DF7D1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2820A03A-5A2A-4EAA-94D9-1E6E64DF7D1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2820A03A-5A2A-4EAA-94D9-1E6E64DF7D1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2820A03A-5A2A-4EAA-94D9-1E6E64DF7D1C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73F3B55F-E157-418B-9F79-92205C2FB98C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73F3B55F-E157-418B-9F79-92205C2FB98C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73F3B55F-E157-418B-9F79-92205C2FB98C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73F3B55F-E157-418B-9F79-92205C2FB98C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+EndGlobal
