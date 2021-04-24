@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.UI.Test", "Framew
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework.UI.Contract", "Framework.UI.Contract\Framework.UI.Contract.csproj", "{D642F3EA-D0C6-4D2C-BF40-D25BDA126D76}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing.UI", "Testing.UI\Testing.UI.csproj", "{82634AA1-80E9-4C60-A3CE-69B4F955BEBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,6 +26,10 @@ Global
 		{D642F3EA-D0C6-4D2C-BF40-D25BDA126D76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D642F3EA-D0C6-4D2C-BF40-D25BDA126D76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D642F3EA-D0C6-4D2C-BF40-D25BDA126D76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82634AA1-80E9-4C60-A3CE-69B4F955BEBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82634AA1-80E9-4C60-A3CE-69B4F955BEBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82634AA1-80E9-4C60-A3CE-69B4F955BEBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82634AA1-80E9-4C60-A3CE-69B4F955BEBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection

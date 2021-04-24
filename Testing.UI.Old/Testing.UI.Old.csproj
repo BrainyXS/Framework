@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <RootNamespace>Testing.UI</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Framework.UI.Contract\Framework.UI.Contract.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Reference Include="PresentationFramework" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="PresentationFramework" Version="4.6.0" />
+    </ItemGroup>
+
+</Project>

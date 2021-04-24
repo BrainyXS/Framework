@@ -4,13 +4,10 @@
         <OutputType>WinExe</OutputType>
         <TargetFramework>net5.0-windows</TargetFramework>
         <UseWPF>true</UseWPF>
-        <RootNamespace>Framework.UI.Implementation</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Framework.UI.Contract\Framework.UI.Contract.csproj" />
-      <ProjectReference Include="..\Framework.UI.Test\Framework.UI.Test.csproj" />
-      <ProjectReference Include="..\Testing.UI\Testing.UI.csproj" />
     </ItemGroup>
 
     <ItemGroup>
