@@ -1,11 +1,24 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Framework.UI.Implementation;
 
-namespace Framework.UI.Implementation
+namespace Framework.Contract.Navigation
 {
     public class ViewModelBase : INotifyPropertyChanged
     {
-       
+        public  INavigationService Navigation { get; set; }
+
+        public void InitializeParams(INavigationService navigationService)
+        {
+            Navigation = navigationService;
+            Initialize();
+        }
+
+        public virtual void Initialize()
+        {
+            
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]

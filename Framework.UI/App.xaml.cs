@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using Autofac;
 using Framework.UI.Implementation.NavigationService;
 using Framework.UI.Implementation.ViewModels;
 
@@ -14,8 +15,11 @@ namespace Framework.UI.Implementation
         {
             base.OnStartup(e);
             var mainViewModel = new MainWindow();
-            Navigation.Setup(mainViewModel.FindName("Frame") as Frame);
-            Navigation.NavigateTo<WelcomeViewModel>();
+            var nav = new Navigation();
+            var builder = new ContainerBuilder();
+            builder.RegisterModule<UIModule>();
+            nav.Setup(mainViewModel.FindName("Frame") as Frame, builder);
+            nav.NavigateTo<WelcomeViewModel>();
             mainViewModel.Show();
         }
     }

@@ -1,4 +1,4 @@
-using Framework.UI.Implementation.NavigationService;
+using Framework.Contract.Navigation;
 
 namespace Framework.UI.Implementation.ViewModels
 {
@@ -8,5 +8,6 @@ namespace Framework.UI.Implementation.ViewModels
         {
             
         }
+        
     }
 }

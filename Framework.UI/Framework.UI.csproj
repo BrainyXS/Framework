@@ -8,6 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Framework.UI.Contract\Framework.UI.Contract.csproj" />
     </ItemGroup>
 
     <ItemGroup>

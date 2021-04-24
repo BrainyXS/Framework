@@ -1,4 +1,4 @@
-﻿namespace Framework.UI.Implementation.NavigationService
+﻿namespace Framework.Contract.Navigation
 {
     public interface INotifyOnNavigate
     {
