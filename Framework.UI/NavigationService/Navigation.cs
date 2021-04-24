@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Windows.Controls;
 using Autofac;
-using Framework.Contract;
 using Framework.Contract.Navigation;
 
 namespace Framework.UI.Implementation.NavigationService

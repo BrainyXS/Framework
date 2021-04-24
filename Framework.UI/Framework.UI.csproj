@@ -9,12 +9,12 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Framework.UI.Contract\Framework.UI.Contract.csproj" />
-      <ProjectReference Include="..\Framework.UI.Test\Framework.UI.Test.csproj" />
       <ProjectReference Include="..\Testing.UI\Testing.UI.csproj" />
     </ItemGroup>
 
     <ItemGroup>
       <PackageReference Include="Autofac" Version="6.2.0" />
+      <PackageReference Include="FakeItEasy" Version="7.0.1" />
     </ItemGroup>
 
 </Project>
