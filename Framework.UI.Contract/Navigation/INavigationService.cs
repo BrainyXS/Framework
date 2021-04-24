@@ -2,6 +2,6 @@
 {
     public interface INavigationService
     {
-        public void NavigateTo<T>() where T : ViewModelBase;
+        public void NavigateTo<T>(params object[] parameter) where T : ViewModelBase;
     }
 }

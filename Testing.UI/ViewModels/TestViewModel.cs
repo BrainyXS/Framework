@@ -4,5 +4,6 @@ namespace Testing.UI.ViewModels
 {
     public class TestViewModel : ViewModelBase
     {
+        
     }
 }

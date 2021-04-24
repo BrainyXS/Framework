@@ -2,6 +2,6 @@
 {
     public interface INotifyOnNavigate
     {
-        void NavigatedTo();
+        void NavigatedTo(NavigationContext navigationContext);
     }
 }

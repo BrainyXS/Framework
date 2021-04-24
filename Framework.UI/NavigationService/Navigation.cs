@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Controls;
 using Autofac;
 using Framework.Contract;
@@ -11,8 +12,14 @@ namespace Framework.UI.Implementation.NavigationService
         private Frame _frame;
         private IContainer _container;
 
-        public void NavigateTo<T>() where T : ViewModelBase
+        public void NavigateTo<T>(params object[] parameter) where T : ViewModelBase
         {
+            var context = new NavigationContext();
+            foreach (var param in parameter)
+            {
+                context.Params.Add(new KeyValuePair<Type, object>(param.GetType(), param));
+            }
+
             var viewModelType = typeof(T);
             var viewModelInstance = _container.Resolve<T>();
             var viewName = viewModelType.Name.Substring(0, viewModelType.Name.Length - "Model".Length);
@@ -25,6 +32,7 @@ namespace Framework.UI.Implementation.NavigationService
                 {
                     throw new ApplicationException($"View zu {viewModelType.Name} nicht gefunden");
                 }
+
                 viewModelInstance.InitializeParams(this);
                 viewInstance.DataContext = viewModelInstance;
 
@@ -35,7 +43,7 @@ namespace Framework.UI.Implementation.NavigationService
             var navigateable = viewModelInstance as INotifyOnNavigate;
             if (navigateable != null)
             {
-                navigateable.NavigatedTo();
+                navigateable.NavigatedTo(context);
             }
         }
 
