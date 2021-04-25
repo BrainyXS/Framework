@@ -8,7 +8,7 @@ namespace Framework.UI.Implementation.NavigationService
 {
     public class Navigation : INavigationService
     {
-        private Frame _frame;
+        private MainWindow _frame;
         private IContainer _container;
 
         public void NavigateTo<T>(params object[] parameter) where T : ViewModelBase
@@ -22,7 +22,7 @@ namespace Framework.UI.Implementation.NavigationService
             var viewModelType = typeof(T);
             var viewModelInstance = _container.Resolve<T>();
             var viewName = viewModelType.Name.Substring(0, viewModelType.Name.Length - "Model".Length);
-            var viewType = Type.GetType("Testing.UI.Views." + viewName + ", Testing.UI");
+            var viewType = Type.GetType("Lifecycle.UI.Views." + viewName + ", Lifecycle.UI");
 
             if (viewType != null)
             {
@@ -34,9 +34,13 @@ namespace Framework.UI.Implementation.NavigationService
 
                 viewModelInstance.InitializeParams(this);
                 viewInstance.DataContext = viewModelInstance;
-
+                
+                
                 _frame.Navigate(viewInstance);
-                _frame.NavigationService.Refresh();
+            }
+            else
+            {
+                throw new Exception("Die View zu " + viewModelType.Name + " konnte nicht gefunden werden");
             }
 
             var navigateable = viewModelInstance as INotifyOnNavigate;
@@ -47,7 +51,7 @@ namespace Framework.UI.Implementation.NavigationService
         }
 
 
-        public void Setup(Frame frame, ContainerBuilder builder)
+        public void Setup(MainWindow frame, ContainerBuilder builder)
         {
             _container = builder.Build();
             _frame = frame;

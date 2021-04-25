@@ -1,9 +1,7 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 using Autofac;
 using Framework.UI.Implementation.NavigationService;
 using Testing.UI.ViewModels;
-using Testing.UI.Views;
 
 namespace Framework.UI.Implementation
 {
@@ -19,8 +17,7 @@ namespace Framework.UI.Implementation
             var nav = new Navigation();
             var builder = new ContainerBuilder();
             builder.RegisterModule<UIModule>();
-            builder.RegisterModule<Testing.UI.UIModlue>();
-            nav.Setup(mainViewModel.FindName("Frame") as Frame, builder);
+            nav.Setup(mainViewModel, builder);
             nav.NavigateTo<TestViewModel>();
             mainViewModel.Show();
         }

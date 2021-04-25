@@ -10,4 +10,8 @@
       <PackageReference Include="FakeItEasy" Version="7.0.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Navigation" />
+    </ItemGroup>
+
 </Project>
