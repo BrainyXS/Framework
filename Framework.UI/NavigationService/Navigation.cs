@@ -22,7 +22,7 @@ namespace Framework.UI.Implementation.NavigationService
             var viewModelType = typeof(T);
             var viewModelInstance = _container.Resolve<T>();
             var viewName = viewModelType.Name.Substring(0, viewModelType.Name.Length - "Model".Length);
-            var viewType = Type.GetType("Lifecycle.UI.Views." + viewName + ", Lifecycle.UI");
+            var viewType = Type.GetType("Framework.UI.Views." + viewName + ", Framework.UI");
 
             if (viewType != null)
             {
