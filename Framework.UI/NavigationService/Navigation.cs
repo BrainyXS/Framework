@@ -29,7 +29,7 @@ namespace Framework.UI.Implementation.NavigationService
                 var viewInstance = Activator.CreateInstance(viewType) as Page;
                 if (viewInstance == null)
                 {
-                    throw new ApplicationException($"View zu {viewModelType.Name} nicht gefunden");
+                    throw new ApplicationException($"View zu {viewModelType.Name} konnte nicht Instanziiert werden");
                 }
 
                 viewModelInstance.InitializeParams(this);
