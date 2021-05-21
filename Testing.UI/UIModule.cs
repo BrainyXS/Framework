@@ -3,7 +3,7 @@ using Testing.UI.ViewModels;
 
 namespace Testing.UI
 {
-    public class UIModlue : Module
+    public class UIModule : Module
     {
         protected override void Load(ContainerBuilder builder)
         {

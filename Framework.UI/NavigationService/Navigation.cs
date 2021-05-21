@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows.Controls;
 using Autofac;
 using Framework.Contract.Navigation;
@@ -10,8 +11,9 @@ namespace Framework.UI.Implementation.NavigationService
     {
         private MainWindow _frame;
         private IContainer _container;
+        private Page _view;
 
-        public void NavigateTo<T>(params object[] parameter) where T : ViewModelBase
+        public async Task NavigateTo<T>(params object[] parameter) where T : ViewModelBase
         {
             var context = new NavigationContext();
             foreach (var param in parameter)
@@ -22,7 +24,7 @@ namespace Framework.UI.Implementation.NavigationService
             var viewModelType = typeof(T);
             var viewModelInstance = _container.Resolve<T>();
             var viewName = viewModelType.Name.Substring(0, viewModelType.Name.Length - "Model".Length);
-            var viewType = Type.GetType("Lifecycle.UI.Views." + viewName + ", Lifecycle.UI");
+            var viewType = Type.GetType("Testing.UI.Views." + viewName + ", Testing.UI");
 
             if (viewType != null)
             {
@@ -32,11 +34,10 @@ namespace Framework.UI.Implementation.NavigationService
                     throw new ApplicationException($"View zu {viewModelType.Name} nicht gefunden");
                 }
 
-                viewModelInstance.InitializeParams(this);
-                viewInstance.DataContext = viewModelInstance;
-                
-                
                 _frame.Navigate(viewInstance);
+
+                await viewModelInstance.InitializeParams(this);
+                viewInstance.DataContext = viewModelInstance;
             }
             else
             {
@@ -48,6 +49,18 @@ namespace Framework.UI.Implementation.NavigationService
             {
                 navigateable.NavigatedTo(context);
             }
+        }
+
+        public void StartLoading()
+        {
+            _view = _frame.Content as Page;
+            _frame.Navigate(new LoadingPage());
+        }
+
+        public void EndLoading()
+        {
+            _frame.Navigate(_view);
+            _view = null;
         }
 
 

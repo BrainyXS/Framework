@@ -1,7 +1,11 @@
-﻿namespace Framework.Contract.Navigation
+﻿using System.Threading.Tasks;
+
+namespace Framework.Contract.Navigation
 {
     public interface INavigationService
     {
-        public void NavigateTo<T>(params object[] parameter) where T : ViewModelBase;
+        public Task NavigateTo<T>(params object[] parameter) where T : ViewModelBase;
+        void StartLoading();
+        void EndLoading();
     }
 }

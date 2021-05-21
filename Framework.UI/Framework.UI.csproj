@@ -17,4 +17,10 @@
       <PackageReference Include="FakeItEasy" Version="7.0.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Reference Include="FirstFloor.ModernUI, Version=1.0.9.0, Culture=neutral, PublicKeyToken=bc9b0c37bf06c6a9">
+        <HintPath>dlls\FirstFloor.ModernUI.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+
 </Project>
