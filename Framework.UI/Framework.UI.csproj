@@ -6,6 +6,7 @@
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <TargetFramework>net5.0-windows</TargetFramework>
         <OutputType>WinExe</OutputType>
+        <PackageVersion>1.0.1</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>
@@ -13,21 +14,13 @@
     </ItemGroup>
 
     <ItemGroup>
+      <PackageReference Include="Antlr3.Runtime" Version="3.5.1" />
       <PackageReference Include="Autofac" Version="6.2.0" />
+      <PackageReference Include="BouncyCastle.Crypto.dll" Version="1.8.1" />
       <PackageReference Include="FakeItEasy" Version="7.0.1" />
-      <PackageReference Include="MySql.Data" Version="8.0.24" />
-      <PackageReference Include="NHibernate" Version="5.3.8" />
     </ItemGroup>
 
     <ItemGroup>
-      <Content Include="bin\Debug\net5.0-windows\Antlr3.Runtime.dll" />
-      <Content Include="bin\Debug\net5.0-windows\Autofac.dll" />
-      <Content Include="bin\Debug\net5.0-windows\BouncyCastle.Crypto.dll" />
-      <Content Include="bin\Debug\net5.0-windows\Castle.Core.dll" />
-      <Content Include="bin\Debug\net5.0-windows\Entity\ProjektEntity.hbm.xml" />
-      <Content Include="bin\Debug\net5.0-windows\Entity\ServiceEntity.hbm.xml" />
-      <Content Include="bin\Debug\net5.0-windows\Entity\ServiceZuordnungEntity.hbm.xml" />
-      <Content Include="bin\Debug\net5.0-windows\Entity\UserEntity.hbm.xml" />
       <Content Include="bin\Debug\net5.0-windows\FakeItEasy.dll" />
       <Content Include="bin\Debug\net5.0-windows\Framework.UI.Contract.dll" />
       <Content Include="bin\Debug\net5.0-windows\Framework.UI.Contract.pdb" />
@@ -37,29 +30,7 @@
       <Content Include="bin\Debug\net5.0-windows\Framework.UI.pdb" />
       <Content Include="bin\Debug\net5.0-windows\Framework.UI.runtimeconfig.dev.json" />
       <Content Include="bin\Debug\net5.0-windows\Framework.UI.runtimeconfig.json" />
-      <Content Include="bin\Debug\net5.0-windows\Google.Protobuf.dll" />
-      <Content Include="bin\Debug\net5.0-windows\hibernate.cfg.xml" />
-      <Content Include="bin\Debug\net5.0-windows\Iesi.Collections.dll" />
-      <Content Include="bin\Debug\net5.0-windows\K4os.Compression.LZ4.dll" />
-      <Content Include="bin\Debug\net5.0-windows\K4os.Compression.LZ4.Streams.dll" />
-      <Content Include="bin\Debug\net5.0-windows\K4os.Hash.xxHash.dll" />
-      <Content Include="bin\Debug\net5.0-windows\Lifecycle.Service.Contract.dll" />
-      <Content Include="bin\Debug\net5.0-windows\Lifecycle.Service.Contract.pdb" />
-      <Content Include="bin\Debug\net5.0-windows\Lifecycle.Service.dll" />
-      <Content Include="bin\Debug\net5.0-windows\Lifecycle.Service.pdb" />
-      <Content Include="bin\Debug\net5.0-windows\Lifecycle.UI.deps.json" />
-      <Content Include="bin\Debug\net5.0-windows\Lifecycle.UI.dll" />
-      <Content Include="bin\Debug\net5.0-windows\Lifecycle.UI.exe" />
-      <Content Include="bin\Debug\net5.0-windows\Lifecycle.UI.pdb" />
-      <Content Include="bin\Debug\net5.0-windows\Lifecycle.UI.runtimeconfig.dev.json" />
-      <Content Include="bin\Debug\net5.0-windows\Lifecycle.UI.runtimeconfig.json" />
-      <Content Include="bin\Debug\net5.0-windows\MySql.Data.dll" />
-      <Content Include="bin\Debug\net5.0-windows\NHibernate.dll" />
       <Content Include="bin\Debug\net5.0-windows\ref\Framework.UI.dll" />
-      <Content Include="bin\Debug\net5.0-windows\Remotion.Linq.dll" />
-      <Content Include="bin\Debug\net5.0-windows\Remotion.Linq.EagerFetching.dll" />
-      <Content Include="bin\Debug\net5.0-windows\Ubiety.Dns.Core.dll" />
-      <Content Include="bin\Debug\net5.0-windows\Zstandard.Net.dll" />
       <None Remove="dlls\FirstFloor.ModernUI.xml" />
       <Content Include="dlls\FirstFloor.ModernUI.xml">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
