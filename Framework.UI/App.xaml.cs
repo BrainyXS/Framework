@@ -1,8 +1,8 @@
-﻿using System.Windows;
+﻿using System.Threading.Tasks;
+using System.Windows;
 using Autofac;
+using Framework.Contract.Navigation;
 using Framework.UI.Implementation.NavigationService;
-using Testing.UI;
-using Testing.UI.ViewModels;
 
 namespace Framework.UI.Implementation
 {
@@ -11,18 +11,17 @@ namespace Framework.UI.Implementation
     /// </summary>
     public partial class App : Application
     {
-        protected override async void OnStartup(StartupEventArgs e)
+        public static INavigationService Open(Module m, string assembly)
         {
-            base.OnStartup(e);
             var mainViewModel = new MainWindow();
             var nav = new Navigation();
             var builder = new ContainerBuilder();
+            builder.RegisterModule<MainModule>();
             builder.RegisterModule<UIModule>();
-            builder.RegisterModule<Testing.UI.UIModule>();
-            nav.Setup(mainViewModel, builder);
-            await nav.NavigateTo<TestViewModel>();
+            builder.RegisterModule(m);
+            nav.Setup(mainViewModel, builder, assembly);
             mainViewModel.Show();
+            return nav;
         }
     }
-    
 }

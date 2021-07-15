@@ -12,6 +12,7 @@ namespace Framework.UI.Implementation.NavigationService
         private MainWindow _frame;
         private IContainer _container;
         private Page _view;
+        private string _assembly;
 
         public async Task NavigateTo<T>(params object[] parameter) where T : ViewModelBase
         {
@@ -24,14 +25,14 @@ namespace Framework.UI.Implementation.NavigationService
             var viewModelType = typeof(T);
             var viewModelInstance = _container.Resolve<T>();
             var viewName = viewModelType.Name.Substring(0, viewModelType.Name.Length - "Model".Length);
-            var viewType = Type.GetType("Testing.UI.Views." + viewName + ", Testing.UI");
+            var viewType = Type.GetType($"{_assembly}.Views." + viewName + $", {_assembly}");
 
             if (viewType != null)
             {
                 var viewInstance = Activator.CreateInstance(viewType) as Page;
                 if (viewInstance == null)
                 {
-                    throw new ApplicationException($"View zu {viewModelType.Name} konnte nicht Instanziiert werden");
+                    throw new ApplicationException($"View zu {viewModelType.Name} nicht gefunden");
                 }
 
                 _frame.Navigate(viewInstance);
@@ -64,10 +65,11 @@ namespace Framework.UI.Implementation.NavigationService
         }
 
 
-        public void Setup(MainWindow frame, ContainerBuilder builder)
+        public void Setup(MainWindow frame, ContainerBuilder builder, string assembly)
         {
             _container = builder.Build();
             _frame = frame;
+            _assembly = assembly;
         }
     }
 }
