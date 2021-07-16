@@ -1,7 +1,17 @@
 @echo off
+echo =====================
+echo BUILD FRAMEWORK NUGET
+echo =====================
+echo 
+timeout /t 5
+echo "Cleaning Solution"
 dotnet clean
+echo Clean Nuget
+del E:\Coding\Nuget\Framework.*.nupkg
+echo Building Solution
 dotnet build
-copy Framework.UI\bin\Debug\*.nupkg E:\Coding\Nuget
+echo Copying packages
 copy Framework.UI.Contract\bin\Debug\*.nupkg E:\Coding\Nuget
-echo "Fertig!"
+copy Framework.UI\bin\Debug\*.nupkg E:\Coding\Nuget
+echo Fertig!
 pause
