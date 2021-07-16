@@ -3,7 +3,7 @@ echo =====================
 echo BUILD FRAMEWORK NUGET
 echo =====================
 echo 
-timeout /t 5
+timeout /t 3
 echo "Cleaning Solution"
 dotnet clean
 echo Clean Nuget
