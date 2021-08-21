@@ -8,12 +8,12 @@
         Title="Lifecycle" Height="600" Width="1200"
         WindowStyle="None"
         AllowsTransparency="True"
-        Background="Black">
+        Background="White">
     <Window.Resources>
         <ResourceDictionary>
             <Style x:Key="WinButton" TargetType="Button">
                 <Setter Property="Background" Value="Transparent" />
-                <Setter Property="Foreground" Value="White" />
+                <Setter Property="Foreground" Value="Black" />
                 <Setter Property="FontSize" Value="16" />
                 <Setter Property="BorderBrush" Value="Transparent" />
             </Style>
