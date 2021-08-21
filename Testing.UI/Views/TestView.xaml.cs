@@ -2,7 +2,7 @@
 
 namespace Testing.UI.Views
 {
-    public partial class TestView : Page
+    public partial class TestView : UserControl
     {
         public TestView()
         {

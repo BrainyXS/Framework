@@ -9,9 +9,8 @@ namespace Framework.UI.Implementation.NavigationService
 {
     public class Navigation : INavigationService
     {
-        private MainWindow _frame;
+        private UserControl _frame;
         private IContainer _container;
-        private Page _view;
         private string _assembly;
 
         public async Task NavigateTo<T>(params object[] parameter) where T : ViewModelBase
@@ -29,13 +28,11 @@ namespace Framework.UI.Implementation.NavigationService
 
             if (viewType != null)
             {
-                var viewInstance = Activator.CreateInstance(viewType) as Page;
-                if (viewInstance == null)
-                {
-                    throw new ApplicationException($"View zu {viewModelType.Name} nicht gefunden");
-                }
+                var viewInstance = Activator.CreateInstance(viewType) as ContentControl;
 
-                _frame.Navigate(viewInstance);
+
+                _frame.Content = viewInstance ??
+                                 throw new ApplicationException($"View zu {viewModelType.Name} nicht gefunden");
 
                 await viewModelInstance.InitializeParams(this);
                 viewInstance.DataContext = viewModelInstance;
@@ -45,27 +42,22 @@ namespace Framework.UI.Implementation.NavigationService
                 throw new Exception("Die View zu " + viewModelType.Name + " konnte nicht gefunden werden");
             }
 
-            var navigateable = viewModelInstance as INotifyOnNavigate;
-            if (navigateable != null)
+            if (viewModelInstance is INotifyOnNavigate navigateable)
             {
-                navigateable.NavigatedTo(context);
+                await navigateable.NavigatedTo(context);
             }
         }
 
         public void StartLoading()
         {
-            _view = _frame.Content as Page;
-            _frame.Navigate(new LoadingPage());
         }
 
         public void EndLoading()
         {
-            _frame.Navigate(_view);
-            _view = null;
         }
 
 
-        public void Setup(MainWindow frame, ContainerBuilder builder, string assembly)
+        public void Setup(UserControl frame, ContainerBuilder builder, string assembly)
         {
             _container = builder.Build();
             _frame = frame;

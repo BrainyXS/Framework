@@ -5,5 +5,40 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         ResizeMode="CanResizeWithGrip"
-        Title="Lifecycle" Height="600" Width="1200">
+        Title="Lifecycle" Height="600" Width="1200"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Black">
+    <Window.Resources>
+        <ResourceDictionary>
+            <Style x:Key="WinButton" TargetType="Button">
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="Foreground" Value="White" />
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+            </Style>
+            <Style TargetType="Label">
+                <Setter Property="Foreground" Value="White" />
+            </Style>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Border BorderBrush="Transparent" Grid.Column="0" BorderThickness="5" MouseDown="UIElement_OnMouseDown" />
+            <Button Grid.Column="1" Style="{StaticResource WinButton}" Height="25" Width="25" Content="_" Click="Minimize" />
+            <Button Grid.Column="2" Style="{StaticResource WinButton}" Height="25" Width="25" Content="❏" Click="Maximize"/>
+            <Button Grid.Column="3" Style="{StaticResource WinButton}" Height="25" Width="25" Content="X" Click="Shutdown"/>
+        </Grid>
+        <UserControl Grid.Row="1" Name="Control" />
+    </Grid>
 </Window>

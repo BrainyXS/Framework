@@ -19,7 +19,7 @@ namespace Framework.UI.Implementation
             builder.RegisterModule<MainModule>();
             builder.RegisterModule<UIModule>();
             builder.RegisterModule(m);
-            nav.Setup(mainViewModel, builder, assembly);
+            nav.Setup(mainViewModel.Control, builder, assembly);
             mainViewModel.Show();
             return nav;
         }

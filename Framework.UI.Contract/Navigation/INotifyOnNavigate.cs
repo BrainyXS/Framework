@@ -1,7 +1,9 @@
-﻿namespace Framework.Contract.Navigation
+﻿using System.Threading.Tasks;
+
+namespace Framework.Contract.Navigation
 {
     public interface INotifyOnNavigate
     {
-        void NavigatedTo(NavigationContext navigationContext);
+        Task NavigatedTo(NavigationContext navigationContext);
     }
 }
